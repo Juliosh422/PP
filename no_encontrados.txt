@@ -1,0 +1,5 @@
+cp: './entrega2/ej31.ml' y './entrega2/ej31.ml' son el mismo fichero
+cp: './entrega2/prime.ml' y './entrega2/prime.ml' son el mismo fichero
+cp: './entrega2/fibto.ml' y './entrega2/fibto.ml' son el mismo fichero
+cp: './entrega2/collatz.ml' y './entrega2/collatz.ml' son el mismo fichero
+cp: './entrega2/mylist.ml' y './entrega2/mylist.ml' son el mismo fichero

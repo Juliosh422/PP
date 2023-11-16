@@ -57,3 +57,14 @@ let rec length = function
 let rec last = function
   h::[] -> h |
   _::t -> last t;;
+
+(*Comparador de funciones*)
+
+let rec compFun a b x y =
+  if (x>=y) then (a x = b x)
+  else (a x = b x) && compFun a b (x+1) y;;
+
+
+let last (h::t) =
+  List.fold_left (fun _ x -> x) h y;;
+
