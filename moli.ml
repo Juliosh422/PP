@@ -68,3 +68,13 @@ let rec compFun a b x y =
 let last (h::t) =
   List.fold_left (fun _ x -> x) h y;;
 
+(*1/XII/23*)
+
+let <p> = <e1>
+______________
+let <p1> = <e1>
+and <p2> = <e2>
+.
+.
+.
+and <pn> = <en>
