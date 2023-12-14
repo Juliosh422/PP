@@ -78,3 +78,54 @@ and <p2> = <e2>
 .
 .
 and <pn> = <en>
+
+(*Lo mismo que: Usando tuplas*)
+
+let <p1>, <p2>, ..., <pn> = <e1>, <e2>, ..., <en>
+
+(*DOS CASOS*)
+
+let x = 1 and y = 2;;
+let x = x + y;; (*x = 3*)
+let y = x * y;; (*y = 6*)
+
+(*No es lo mismo que:*)
+
+let x = 1 and y = 2;;
+let x = x + y;; (*x = 3*)
+and y = x * y;; (*y = 2*) (*Se evalúan expresiones antes de asignar*)
+ 
+(*Caso práctico: Definición múltiple*)
+
+let rec par n = (* n >= 0 *)
+  n = 0 || impar (n-1)
+and impar n = (* n >= 0 *)
+  n <> 0 && par (n-1);;
+
+(*Lo mismo que: Usando tuplas*)
+
+let rec (par, impar) = 
+  (function n -> n = 0 || impar (n-1)),
+  (function n -> n <> 0 && par (n-1));;
+(*Por alguna razón no compila, pero a priori está bien*)
+
+(** Definición de datos estructurados **)
+
+type persona = {name: string; age: int}
+
+{name = "Pepe"; age = 29};;
+- : person = {name = "Pepe"; age = 29}
+
+(** Creacion de modulos **)
+
+module Contador : sig
+	val next : unit -> int
+	val reset : unit -> int
+end = struct
+	let n = ref 0
+	let next () =
+		n := !n +1;
+		!n
+	let reset () =
+		n := 0
+end
