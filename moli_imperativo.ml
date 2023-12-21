@@ -84,3 +84,23 @@ let next2 () =
 next2 ();;
 - : int = 4 
 
+module Counter : sig
+	val next: unit -> int
+	val reset : unit -> unit
+end = struct
+	let n = ref 0
+	let next () =
+		n := !n + 1; !n
+	let reset () =
+		n := 0
+end;;
+
+(*** registros ***)
+
+type counter = {next : unit -> int;
+				reset : unit unit};;
+
+let c = 
+	let n = ref 0 in 
+	{next = (function () -> incr n; !n);
+	reset = (function () -> n := 0)};;
